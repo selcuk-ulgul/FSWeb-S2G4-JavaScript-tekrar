@@ -122,7 +122,7 @@ sayilar.forEach((sayi)=>{if(sayi%3===0)
 
 })
 console.log("Üçe bölünenler :"+ucetambolunenler)
-/* kodlar buraya */
+
 
 // 3c çözümü:
 ucebolunenlerintoplami=ucetambolunenler.reduce((toplam,i)=>toplam+i,0)
