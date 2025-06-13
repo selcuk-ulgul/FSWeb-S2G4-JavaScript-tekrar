@@ -50,9 +50,10 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2*pi*yaricap;
 }
+console.log("Çemberin Çevresi :"+CemberinCevresi(5))
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -64,9 +65,11 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap,pi) {
+  return pi*yaricap*yaricap;
 }
+
+console.log("Çemberin Alanı :"+CemberinAlani(15,pi))
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -89,35 +92,77 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+let ucetambolunenler=[],
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
-  siralisayilar,
-  tekraredensayilar;
+  besyuzdenkucuksayilar=[],
+  siralisayilar=[],
+  tekraredensayilar=[];
 
 // 3a çözümü
-
+enbuyuk=sayilar[0];
+enkucuk=sayilar[0];
+for(let i=1;i<sayilar.length;i++){
+if(sayilar[i]<enbuyuk){
+  enbuyuk=sayilar[i]
+}
+if(sayilar[i]>enkucuk){
+  enkucuk=sayilar[i]
+}
+}
+console.log("En Buyuk :"+enbuyuk)
+console.log("En Küçük :"+enkucuk)
 /* kodlar buraya */
 
 // 3b çözümü:
+sayilar.forEach((sayi)=>{if(sayi%3===0) 
+  ucetambolunenler.push(sayi)
 
+
+})
+console.log("Üçe bölünenler :"+ucetambolunenler)
 /* kodlar buraya */
 
 // 3c çözümü:
-
+ucebolunenlerintoplami=ucetambolunenler.reduce((toplam,i)=>toplam+i,0)
+console.log("Üçe Bölünenlerin Toplamı :"+ucebolunenlerintoplami)
 /* kodlar buraya */
+besyuzdenkucuksayilar=sayilar.filter(i=>i<500)
 
 // 3d çözümü
-
+besyuzdenkucuksayilar=sayilar.filter(i=>i<500)
+console.log("500'den küçük sayılar :"+besyuzdenkucuksayilar)
 /* kodlar buraya */
 
 // 3e çözümü
-
+siralisayilar=besyuzdenkucuksayilar.sort((a,b)=>a-b)
+console.log("500'den küçük sıralı sayılar :"+besyuzdenkucuksayilar)
 /* kodlar buraya */
 
 // 3f çözümü
+ const tekrarEdenler = {};
+
+for (let i = 0; i < sayilar.length; i++) {
+  const sayi = sayilar[i];
+  if (tekrarEdenler[sayi]) {
+    tekrarEdenler[sayi]++;
+  } else {
+    tekrarEdenler[sayi] = 1;
+  }
+}
+
+
+for (const sayi in tekrarEdenler) {
+  if (tekrarEdenler[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarEdenler.sayi} kere tekrar edilmiştir`);
+  }
+}
+
+console.log(tekraredensayilar);
+
+
+
 
 /* kodlar buraya */
 
